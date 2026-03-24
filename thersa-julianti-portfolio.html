@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thersa Julianti — Strategic Finance Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0B1C3D;
+    --navy-mid: #162850;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --cream: #F7F3EC;
+    --white: #FFFFFF;
+    --grey: #8A8FA0;
+    --text: #1A1F2E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(11,28,61,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--gold); letter-spacing: 0.05em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.82rem; color: rgba(255,255,255,0.7);
+    text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .hero-left { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900; line-height: 1.0;
+    color: var(--white); margin-bottom: 0.3rem;
+  }
+  h1 span { color: var(--gold); }
+
+  .hero-title {
+    font-size: 1rem; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero-bio {
+    font-size: 1.05rem; line-height: 1.75;
+    color: rgba(255,255,255,0.75); max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 2rem;
+    background: var(--gold);
+    color: var(--navy); font-weight: 600; font-size: 0.88rem;
+    text-decoration: none; letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .hero-right {
+    display: flex; flex-direction: column; align-items: flex-end;
+    gap: 1.2rem; position: relative; z-index: 2;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 1.5rem 2rem; text-align: right;
+    min-width: 220px;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .stat-card:hover { border-color: var(--gold); transform: translateX(-6px); }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 700; color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem; color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .section-tag::before {
+    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
+    color: var(--navy); margin-bottom: 3rem; line-height: 1.15;
+  }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--navy); }
+  .projects h2 { color: var(--white); }
+  .projects .section-tag { margin-bottom: 1rem; }
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+  .project-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2.5rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+  .project-card:hover { border-color: var(--gold); }
+  .project-card:hover::before { height: 100%; }
+
+  .project-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; font-weight: 900;
+    color: rgba(201,168,76,0.15); line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .project-title {
+    font-size: 1.15rem; font-weight: 600; color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .project-desc {
+    font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .project-impact {
+    display: flex; align-items: center; gap: 0.8rem;
+    background: rgba(201,168,76,0.1);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1rem;
+  }
+  .impact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+  .impact-val { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+  .tag {
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    border: 1px solid rgba(201,168,76,0.3); color: rgba(255,255,255,0.5);
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--cream); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .timeline-item {
+    padding-left: 2.5rem; padding-bottom: 3rem; position: relative;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -5px; top: 6px;
+    width: 11px; height: 11px;
+    background: var(--gold); border-radius: 50%;
+    border: 2px solid var(--cream);
+  }
+  .exp-meta {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .exp-company {
+    font-size: 0.95rem; color: var(--grey); margin-bottom: 1rem;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.92rem; line-height: 1.7; color: #3A4155;
+    padding-left: 1rem; position: relative; margin-bottom: 0.3rem;
+  }
+  .exp-bullets li::before {
+    content: '—'; position: absolute; left: 0; color: var(--gold);
+  }
+
+  /* ── SKILLS ── */
+  .skills { background: var(--white); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .skill-group {
+    padding: 1.8rem;
+    border: 1px solid #E8E4DD;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .skill-group:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.08);
+  }
+  .skill-group-icon {
+    font-size: 1.5rem; margin-bottom: 1rem;
+  }
+  .skill-group-title {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--gold); margin-bottom: 1rem; font-weight: 600;
+  }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pill {
+    font-size: 0.8rem; background: #F0ECE5;
+    color: var(--navy); padding: 0.35rem 0.8rem;
+    font-weight: 500;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--navy);
+    text-align: center;
+  }
+  .contact h2 { color: var(--white); margin-bottom: 1rem; }
+  .contact-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.6);
+    margin-bottom: 3rem;
+  }
+  .contact-links {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem;
+  }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--white); text-decoration: none; font-size: 0.88rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { background: rgba(201,168,76,0.12); border-color: var(--gold); }
+  .contact-link.primary {
+    background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600;
+  }
+  .contact-link.primary:hover { background: var(--gold-light); }
+
+  footer {
+    background: #060E1F; text-align: center;
+    padding: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  h1            { animation-delay: 0.25s; }
+  .hero-title   { animation-delay: 0.35s; }
+  .hero-bio     { animation-delay: 0.45s; }
+  .hero-cta     { animation-delay: 0.55s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .stat-card { min-width: 140px; text-align: left; }
+    section { padding: 4rem 1.5rem; }
+    .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">TJ</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Finance &amp; Automation Specialist</div>
+    <h1>Thersa<br/><span>Julianti</span></h1>
+    <p class="hero-title">Strategic Finance · Data Visualization · AI Integration</p>
+    <p class="hero-bio">
+      Visionary finance professional with 7+ years of experience driving operational efficiency
+      and financial growth. I don't just report numbers — I automate, visualize, and turn
+      financial data into real-time strategic decisions that reach the C-suite.
+    </p>
+    <a class="hero-cta" href="#contact">Get in Touch →</a>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">Years of Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6h</div>
+      <div class="stat-label">Reporting time (was 7 days)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Companies Served</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-tag">Featured Work</div>
+  <h2>Key Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">Financial Reporting Automation</div>
+      <p class="project-desc">
+        Engineered a full end-to-end financial automation system using Google AppScript,
+        transforming a manual, multi-day reporting workflow into a near-instant process.
+        Custom database architecture integrated directly with Google Sheets to auto-generate
+        closing financial statements with zero manual re-entry.
+      </p>
+      <div class="project-impact">
+        <div>
+          <div class="impact-label">Impact</div>
+          <div class="impact-val">Reporting time reduced from 7 days → 6 hours</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Google AppScript</span>
+        <span class="tag">Google Sheets</span>
+        <span class="tag">Automation</span>
+        <span class="tag">Financial Reporting</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">CEO-Level Budget vs Actual Dashboard</div>
+      <p class="project-desc">
+        Designed and deployed an interactive Looker Studio dashboard for real-time variance
+        analysis between actual results and budget targets. The dashboard is used weekly by
+        the CEO for strategic decision-making, surfacing KPIs, trend lines, and scenario
+        comparisons in a single view.
+      </p>
+      <div class="project-impact">
+        <div>
+          <div class="impact-label">Impact</div>
+          <div class="impact-val">Used weekly by CEO for executive strategic reviews</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Looker Studio</span>
+        <span class="tag">Data Visualization</span>
+        <span class="tag">KPI Tracking</span>
+        <span class="tag">Variance Analysis</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-tag">Career Journey</div>
+  <h2>Work Experience</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="exp-meta">Sep 2025 – Present</div>
+      <div class="exp-role">Head of Strategic Finance</div>
+      <div class="exp-company">ONEKLINIK · Jakarta, Indonesia</div>
+      <ul class="exp-bullets">
+        <li>Engineered sophisticated financial models and custom databases with Google AppScript for automated performance projections and scenario testing.</li>
+        <li>Designed interactive Looker Studio dashboards for in-depth budget vs actual variance analysis at executive level.</li>
+        <li>Provide high-level strategic advisory to leadership based on rigorous financial analysis and automated reporting.</li>
+        <li>Lead cross-functional initiatives including feasibility assessments and internal web-based software development.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="exp-meta">Jun 2024 – Sep 2025</div>
+      <div class="exp-role">Finance &amp; GA Manager</div>
+      <div class="exp-company">ONEKLINIK · Jakarta, Indonesia</div>
+      <ul class="exp-bullets">
+        <li>Successfully integrated AI into financial processes, accelerating compilation of closing financial statements.</li>
+        <li>Acted as PIC for all operational and financial matters (de-facto CFO role), overseeing promotional activities and target achievement.</li>
+        <li>Conducted comprehensive corporate financial analysis including complex forecasting and annual budgeting cycles.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="exp-meta">Oct 2021 – Jun 2024</div>
+      <div class="exp-role">Finance Country Manager</div>
+      <div class="exp-company">ZUZU Teknologi Service · Jakarta, Indonesia</div>
+      <ul class="exp-bullets">
+        <li>Compiled quarterly accounting reports for the CFO and weekly reports for routine executive meetings.</li>
+        <li>Managed fund withdrawals from third-party payment gateways and handled vendor/customer payment cycles.</li>
+        <li>Prepared and managed invoices to ensure seamless financial operations across the business.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="exp-meta">Nov 2017 – Oct 2021</div>
+      <div class="exp-role">Finance Executive</div>
+      <div class="exp-company">ZUZU Teknologi Service · Jakarta, Indonesia</div>
+      <ul class="exp-bullets">
+        <li>Managed receivables collection from OTAs including Traveloka and Expedia.</li>
+        <li>Compiled and submitted weekly APAR reports to top management for financial monitoring.</li>
+        <li>Led team members toward departmental goals and handled hotel payment disbursements.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="exp-meta">Sep 2016 – Oct 2017</div>
+      <div class="exp-role">Tax Staff</div>
+      <div class="exp-company">Binakarya Propertindo Group · Jakarta, Indonesia</div>
+      <ul class="exp-bullets">
+        <li>Prepared tax reports and ensured timely payment compliance in accordance with regulations.</li>
+        <li>Handled data entry, journaling, filing, and general bookkeeping duties.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-tag">Capabilities</div>
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <div class="skill-group-icon">⚙️</div>
+      <div class="skill-group-title">Automation & Development</div>
+      <div class="skill-pills">
+        <span class="pill">Google AppScript</span>
+        <span class="pill">Google Sheets (Advanced)</span>
+        <span class="pill">Excel / VBA</span>
+        <span class="pill">Web App Development (Beginner)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">📊</div>
+      <div class="skill-group-title">Data Visualization</div>
+      <div class="skill-pills">
+        <span class="pill">Looker Studio</span>
+        <span class="pill">KPI Dashboards</span>
+        <span class="pill">Variance Analysis</span>
+        <span class="pill">Financial Reporting</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">💼</div>
+      <div class="skill-group-title">Finance & Accounting</div>
+      <div class="skill-pills">
+        <span class="pill">Full-cycle Accounting</span>
+        <span class="pill">Financial Analysis</span>
+        <span class="pill">Budgeting & Forecasting</span>
+        <span class="pill">Tax Compliance</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">🤖</div>
+      <div class="skill-group-title">AI & Innovation</div>
+      <div class="skill-pills">
+        <span class="pill">AI Integration in Finance</span>
+        <span class="pill">Process Optimization</span>
+        <span class="pill">Scenario Testing</span>
+        <span class="pill">Automated Reporting</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">🏦</div>
+      <div class="skill-group-title">Systems & Platforms</div>
+      <div class="skill-pills">
+        <span class="pill">Accounting Software</span>
+        <span class="pill">Payment Gateway Mgmt</span>
+        <span class="pill">Microsoft Office Suite</span>
+        <span class="pill">Google Workspace</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">🌐</div>
+      <div class="skill-group-title">Languages & Education</div>
+      <div class="skill-pills">
+        <span class="pill">Indonesian (Native)</span>
+        <span class="pill">English (C2 – Proficient)</span>
+        <span class="pill">B.Econ – Trisakti (2016)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-tag" style="justify-content:center;">Let's Work Together</div>
+  <h2>Get In Touch</h2>
+  <p class="contact-sub">Open to freelance projects, remote roles, and strategic consulting opportunities.</p>
+  <div class="contact-links">
+    <a class="contact-link primary" href="mailto:thersajulianti@gmail.com">✉ thersajulianti@gmail.com</a>
+    <a class="contact-link" href="https://linkedin.com/in/thersa-julianti-68a813129" target="_blank">in LinkedIn</a>
+    <a class="contact-link" href="tel:+6281295344192">📞 0812-9534-4192</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Thersa Julianti · West Jakarta, Indonesia
+</footer>
+
+</body>
+</html>
